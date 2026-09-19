@@ -43,7 +43,7 @@ const signin = async (req, res, next) => {
         sameSite: "lax",
       })
       .status(200)
-      .json(rest);
+      .json({...rest, token});
   } catch (error) {
     next(error);
   }
@@ -67,7 +67,7 @@ const google = async (req, res, next) => {
           sameSite: "lax",
         })
         .status(200)
-        .json(rest);
+        .json({...rest, token});
     } else {
       const generatedPassword =
         Math.random().toString(36).slice(-8) +
@@ -96,7 +96,7 @@ const google = async (req, res, next) => {
           sameSite: "lax",
         })
         .status(200)
-        .json(rest);
+        .json({...rest, token});
     }
   } catch (error) {
     next(error);
