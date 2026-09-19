@@ -39,8 +39,8 @@ const signin = async (req, res, next) => {
     res
       .cookie("access_token", token, {
         httpOnly: true,
-        secure: true,
-        sameSite: "none",
+        secure: false,
+        sameSite: "lax",
       })
       .status(200)
       .json(rest);
@@ -63,8 +63,8 @@ const google = async (req, res, next) => {
       res
         .cookie("access_token", token, {
           httpOnly: true,
-          secure: true,
-          sameSite: "none",
+          secure: false,
+          sameSite: "lax",
         })
         .status(200)
         .json(rest);
